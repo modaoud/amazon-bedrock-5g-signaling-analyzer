@@ -31,7 +31,7 @@ This solution uses a two-step approach:
 
 ```bash
 # Clone the repository
-git clone https://github.com/daoudmo/amazon-bedrock-5g-signaling-analyzer.git
+git clone https://github.com/modaoud/amazon-bedrock-5g-signaling-analyzer.git
 cd amazon-bedrock-5g-signaling-analyzer
 
 # Create and activate virtual environment
