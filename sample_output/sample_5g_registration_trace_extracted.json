@@ -1,0 +1,169 @@
+{
+  "procedure_name": "5G Initial Registration",
+  "procedure_confidence": "high",
+  "access_type": "3GPP (NR)",
+  "network_functions": [
+    "UE",
+    "gNB",
+    "AMF"
+  ],
+  "messages": [
+    {
+      "order": 1,
+      "layer": "NGAP",
+      "message_name": "Initial UE Message",
+      "source": "gNB",
+      "target": "AMF",
+      "important_fields": [
+        "RAN UE NGAP ID: 0x00001001",
+        "NAS-PDU: Registration Request",
+        "PLMN: 001-01",
+        "TAC: 0x00A1",
+        "NR Cell ID: 0xABCDE12345"
+      ]
+    },
+    {
+      "order": 2,
+      "layer": "NAS",
+      "message_name": "Registration Request",
+      "source": "UE",
+      "target": "AMF",
+      "important_fields": [
+        "Registration Type: Initial Registration",
+        "ngKSI: Not Available",
+        "5GS Mobile Identity: SUCI (MCC=001, MNC=01, MSIN=1234567890)",
+        "UE Security Capability: 5G-EA (128-NEA1, 128-NEA2), 5G-IA (128-NIA1, 128-NIA2)",
+        "Requested NSSAI: SST=1, SD=0x010203"
+      ]
+    },
+    {
+      "order": 3,
+      "layer": "NAS",
+      "message_name": "Authentication Request",
+      "source": "AMF",
+      "target": "UE",
+      "important_fields": [
+        "ngKSI: 0x01",
+        "ABBA: 0x0000",
+        "RAND: 0x8F3A2B1C4D5E6F708192AABBCCDDEEFF",
+        "AUTN: 0x11223344556677889900AABBCCDDEEFF"
+      ]
+    },
+    {
+      "order": 4,
+      "layer": "NAS",
+      "message_name": "Authentication Response",
+      "source": "UE",
+      "target": "AMF",
+      "important_fields": [
+        "RES*: 0xA1B2C3D4E5F60708"
+      ]
+    },
+    {
+      "order": 5,
+      "layer": "NAS",
+      "message_name": "Security Mode Command",
+      "source": "AMF",
+      "target": "UE",
+      "important_fields": [
+        "Selected NAS Security Algorithms: Ciphering=128-NEA2, Integrity=128-NIA2",
+        "ngKSI: 0x01"
+      ]
+    },
+    {
+      "order": 6,
+      "layer": "NAS",
+      "message_name": "Security Mode Complete",
+      "source": "UE",
+      "target": "AMF",
+      "important_fields": [
+        "IMEISV: 356789012345678"
+      ]
+    },
+    {
+      "order": 7,
+      "layer": "NGAP",
+      "message_name": "Initial Context Setup Request",
+      "source": "AMF",
+      "target": "gNB",
+      "important_fields": [
+        "AMF UE NGAP ID: 0x00002001",
+        "RAN UE NGAP ID: 0x00001001",
+        "NAS-PDU: Registration Accept"
+      ]
+    },
+    {
+      "order": 8,
+      "layer": "NAS",
+      "message_name": "Registration Accept",
+      "source": "AMF",
+      "target": "UE",
+      "important_fields": [
+        "5G-GUTI: assigned",
+        "TAI List: TAC=0x00A1, TAC=0x00A2",
+        "Allowed NSSAI: SST=1, SD=0x010203",
+        "Timer T3512: 3600",
+        "Timer T3502: 720"
+      ]
+    },
+    {
+      "order": 9,
+      "layer": "NGAP",
+      "message_name": "Initial Context Setup Response",
+      "source": "gNB",
+      "target": "AMF",
+      "important_fields": [
+        "AMF UE NGAP ID: 0x00002001",
+        "RAN UE NGAP ID: 0x00001001",
+        "Status: Successful"
+      ]
+    },
+    {
+      "order": 10,
+      "layer": "NAS",
+      "message_name": "Registration Complete",
+      "source": "UE",
+      "target": "AMF",
+      "important_fields": []
+    }
+  ],
+  "phases": [
+    "Initial UE Message and Registration Request",
+    "Authentication",
+    "Security Mode Establishment",
+    "Initial Context Setup",
+    "Registration Completion"
+  ],
+  "key_identifiers": {
+    "subscriber_identity": [
+      "SUCI (MCC=001, MNC=01, MSIN=1234567890)",
+      "IMEISV: 356789012345678",
+      "5G-GUTI: assigned"
+    ],
+    "session_or_context_ids": [
+      "RAN UE NGAP ID: 0x00001001",
+      "AMF UE NGAP ID: 0x00002001",
+      "ngKSI: 0x01"
+    ],
+    "mobility_or_location_ids": [
+      "PLMN: 001-01",
+      "TAC: 0x00A1",
+      "TAC: 0x00A2",
+      "NR Cell ID: 0xABCDE12345"
+    ]
+  },
+  "security_context": {
+    "authentication_observed": true,
+    "security_mode_observed": true,
+    "selected_algorithms": [
+      "128-NEA2 (Ciphering)",
+      "128-NIA2 (Integrity)"
+    ]
+  },
+  "minimum_release": "Release 15",
+  "minimum_release_confidence": "high",
+  "uncertainty_notes": [
+    "The exact 5G-GUTI value assigned in Registration Accept is not shown in the trace, only indicated as 'assigned'.",
+    "No PDU Session Establishment observed; this trace covers only the registration procedure."
+  ]
+}

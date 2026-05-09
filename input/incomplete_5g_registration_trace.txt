@@ -1,0 +1,55 @@
+========== TRACE START: 5G REGISTRATION (NR, 3GPP ACCESS) ==========
+
+--- NGAP: Initial UE Message ---
+[2025-03-10 10:15:23.112] gNB -> AMF
+    Procedure: Initial UE Message
+    RAN UE NGAP ID: 0x00001001
+    NAS-PDU: Registration Request
+    User Location Info:
+        PLMN: 001-01
+        TAC: 0x00A1
+        NR Cell ID: 0xABCDE12345
+
+--- NAS: Registration Request ---
+[2025-03-10 10:15:23.113] UE -> AMF
+    Extended Protocol Discriminator: 5GS Mobility Management (0x7E)
+    Security Header Type: Plain NAS (0x0)
+    Message Type: Registration Request (0x41)
+    Registration Type: Initial Registration
+    ngKSI: Not Available
+    5GS Mobile Identity:
+        Type: SUCI
+        MCC: 001, MNC: 01
+        Routing Indicator: 0000
+        Protection Scheme: Null
+        MSIN: 1234567890
+    UE Security Capability:
+        5G-EA: 128-NEA1, 128-NEA2
+        5G-IA: 128-NIA1, 128-NIA2
+    Requested NSSAI:
+        - SST=1, SD=0x010203
+
+--- NAS: Authentication Request ---
+[2025-03-10 10:15:23.245] AMF -> UE
+    Message Type: Authentication Request
+    ngKSI: 0x01
+    ABBA: 0x0000
+    RAND: 0x8F3A2B1C4D5E6F708192AABBCCDDEEFF
+    AUTN: 0x11223344556677889900AABBCCDDEEFF
+
+--- NAS: Authentication Response ---
+[2025-03-10 10:15:23.318] UE -> AMF
+    Message Type: Authentication Response
+    RES*: 0xA1B2C3D4E5F60708
+
+--- NAS: Security Mode Command ---
+[2025-03-10 10:15:23.410] AMF -> UE
+    Message Type: Security Mode Command
+    Selected NAS Security Algorithms:
+        Ciphering: 128-NEA2
+        Integrity: 128-NIA2
+    ngKSI: 0x01
+
+--- TRACE ENDS ABRUPTLY (Security Mode Complete not captured) ---
+
+========== TRACE END ==========
