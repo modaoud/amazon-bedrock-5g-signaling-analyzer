@@ -23,7 +23,7 @@ This solution uses a two-step approach:
 ## Prerequisites
 
 - Python 3.10 or later
-- AWS Command Line Interface (AWS CLI) configured with credentials ([AWS IAM Identity Center recommended](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html))
+- AWS Command Line Interface (AWS CLI) configured with credentials ([AWS IAM Identity Center recommended](https://docs.aws.amazon.com/iamidentitycenter/latest/userguide/what-is.html))
 - Access to Amazon Bedrock with a supported model enabled
 - AWS Identity and Access Management (IAM) permissions for `bedrock:InvokeModel`
 
