@@ -104,7 +104,7 @@ This solution is designed to accept decoded 5G signaling traces in human-readabl
 tshark -r capture.pcap -d sctp.port==38412,ngap -V > input/my_trace.txt
 ```
 
-The solution does not require a specific format or schema. It handles variations in layout across different tools (Wireshark, tshark, Netscout, Gigamon, and vendor-specific analyzers).
+The solution does not require a specific format or schema. It is designed to handle variations in layout across different tools (Wireshark, tshark, Netscout, Gigamon, and vendor-specific analyzers), though results may vary depending on trace format.
 
 ## Cost
 

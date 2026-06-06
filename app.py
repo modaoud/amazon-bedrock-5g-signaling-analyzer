@@ -43,7 +43,7 @@ def main():
     except botocore.exceptions.ClientError as e:
         error_code = e.response["Error"]["Code"]
         if error_code == "AccessDeniedException":
-            print("Access denied. Verify IAM permissions for bedrock:InvokeModel.")
+            print("Access denied. Verify AWS Identity and Access Management (IAM) permissions for bedrock:InvokeModel.")
         elif error_code == "ThrottlingException":
             print("Request throttled. Wait and retry, or request a quota increase.")
         elif error_code == "ResourceNotFoundException":
