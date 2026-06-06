@@ -31,8 +31,8 @@ This solution uses a two-step approach:
 
 ```bash
 # Clone the repository
-git clone https://github.com/modaoud/amazon-bedrock-5g-signaling-analyzer.git
-cd amazon-bedrock-5g-signaling-analyzer
+git clone https://github.com/aws-samples/sample-amazon-bedrock-5g-signaling-trace-analyzer.git
+cd sample-amazon-bedrock-5g-signaling-trace-analyzer
 
 # Create and activate virtual environment
 python3 -m venv .venv
@@ -43,6 +43,15 @@ pip install -r requirements.txt
 
 # Run with the sample trace
 python app.py
+
+# Verify the output
+ls output/
+# Expected files:
+# - sample_5g_registration_trace_extracted.json
+# - sample_5g_registration_trace_analysis.md
+
+# View the analysis report
+cat output/sample_5g_registration_trace_analysis.md
 
 # Run with the incomplete trace
 python app.py input/incomplete_5g_registration_trace.txt
@@ -87,7 +96,7 @@ MODEL_ID = "us.anthropic.claude-sonnet-4-20250514-v1:0"
 
 ## Using your own traces
 
-This solution accepts any decoded 5G signaling trace in human-readable text form. You can generate decoded traces from PCAP files using tshark:
+This solution is designed to accept decoded 5G signaling traces in human-readable text form. You can generate decoded traces from PCAP files using tshark:
 
 ```bash
 tshark -r capture.pcap -d sctp.port==38412,ngap -V > input/my_trace.txt
@@ -97,11 +106,11 @@ The solution does not require a specific format or schema. It handles variations
 
 ## Cost
 
-This solution uses Amazon Bedrock on-demand inference. Charges are per API call — no persistent resources are created. See [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/) for current rates.
+This solution uses Amazon Bedrock on-demand inference. Charges are based on the number of input and output tokens processed — no persistent resources are created. See [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/) for current rates.
 
 ## Clean up
 
-No persistent AWS resources are created. To stop incurring charges, simply stop running the application. If you created an IAM user or role specifically for this solution, remove it from the AWS Management Console.
+No persistent AWS resources are created. To stop incurring charges, stop running the application. If you created an IAM user or role specifically for this solution, remove it from the AWS Management Console.
 
 ## Security
 
@@ -109,9 +118,9 @@ No persistent AWS resources are created. To stop incurring charges, simply stop 
 - The sample traces use test network PLMN 001-01 and do not contain real subscriber data.
 - See [CONTRIBUTING](CONTRIBUTING.md) for security issue reporting.
 
-## Related blog post
+## Conclusion
 
-[Build an AI-powered 5G signaling trace analyzer using Amazon Bedrock](link-to-blog-post)
+This solution demonstrates how Amazon Bedrock can automate the interpretation of decoded 5G signaling traces, reducing initial analysis time from minutes to seconds. The two-step approach — structured extraction followed by technical analysis — produces consistent, reusable output that helps telecom engineers identify protocol issues, incomplete procedures, and potential anomalies. Clone the repository, run the sample traces, then try your own decoded PCAP output.
 
 ## License
 
