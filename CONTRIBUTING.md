@@ -4,9 +4,7 @@ Thank you for your interest in contributing to this project.
 
 ## Security issue notifications
 
-If you discover a potential security issue, please notify AWS Security via our
-[vulnerability reporting page](http://aws.amazon.com/security/vulnerability-reporting/).
-Please do **not** create a public GitHub issue.
+If you discover a potential security issue, please report it through the [AWS Vulnerability Disclosure Program on HackerOne](https://hackerone.com/aws_vdp) or email aws-security@amazon.com. Please do **not** create a public GitHub issue.
 
 ## Contributions
 

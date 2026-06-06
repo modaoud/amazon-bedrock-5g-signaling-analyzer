@@ -23,9 +23,9 @@ This solution uses a two-step approach:
 ## Prerequisites
 
 - Python 3.10 or later
-- AWS CLI configured with credentials ([IAM Identity Center recommended](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html))
+- AWS CLI configured with credentials ([AWS IAM Identity Center recommended](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html))
 - Access to Amazon Bedrock with a supported model enabled
-- IAM permissions for `bedrock:InvokeModel`
+- AWS Identity and Access Management (IAM) permissions for `bedrock:InvokeModel`
 
 ## Quick start
 
@@ -34,8 +34,10 @@ This solution uses a two-step approach:
 git clone https://github.com/aws-samples/sample-amazon-bedrock-5g-signaling-trace-analyzer.git
 cd sample-amazon-bedrock-5g-signaling-trace-analyzer
 
-# Create and activate virtual environment
+# Create virtual environment
 python3 -m venv .venv
+
+# Activate virtual environment
 source .venv/bin/activate
 
 # Install dependencies
