@@ -113,7 +113,7 @@ This trace segment documents a UE initiating registration to a 5G core network v
 ### Visibility Limitations
 - **Core network interactions hidden:** AUSF authentication, UDM subscription retrieval, SIDF SUCI de-concealment not visible
 - **RRC layer not captured:** Initial access, RRC Setup, and RRC connection establishment preceding NGAP Initial UE Message
-- **No error or reject messages observed** - Cannot determine if procedure failed or trace simply ended
+- **No error or reject messages observed** - Cannot determine if procedure failed or trace ended prematurely
 
 ### Potential Anomalies
 - **ABBA=0x0000:** While valid, this may indicate simplified security configuration without anti-bidding down protection

@@ -1,4 +1,4 @@
-# Contributing
+# Contributing to Amazon Bedrock 5G Signaling Trace Analyzer
 
 Thank you for your interest in contributing to this project.
 
